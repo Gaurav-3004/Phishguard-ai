@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #080B10;
+    background-image:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(0,217,181,0.10), transparent),
+      radial-gradient(ellipse 700px 500px at 90% 10%, rgba(255,93,115,0.06), transparent);
+    background-attachment: fixed;
+  }
+  ::selection {
+    background: rgba(0,217,181,0.3);
+  }
+  :focus-visible {
+    outline: 2px solid #00D9B5;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-ink-700/60 backdrop-blur-xl border border-white/[0.06] rounded-2xl;
+  }
+  .glass-card-hover {
+    @apply transition-colors duration-200 hover:border-signal/30;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-signal px-5 py-3 text-sm font-semibold text-ink transition hover:brightness-110 active:brightness-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/[0.03] px-5 py-3 text-sm font-semibold text-mist transition hover:border-signal/40 hover:bg-white/[0.06];
+  }
+  .label-tag {
+    @apply text-xs font-mono text-mist-muted tracking-wide;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
